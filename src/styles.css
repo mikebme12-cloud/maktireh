@@ -59,29 +59,44 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  --color-brand: var(--brand);
+  --color-brand-deep: var(--brand-deep);
+  --color-brand-glow: var(--brand-glow);
+  --color-brand-foreground: var(--brand-foreground);
 }
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
+  /* Dark green brand palette (Maktireh Transit) */
+  --brand: oklch(0.42 0.09 175);          /* deep teal-green */
+  --brand-deep: oklch(0.28 0.07 175);
+  --brand-glow: oklch(0.78 0.20 155);     /* bright green blink */
+  --brand-foreground: oklch(0.98 0.01 170);
+
+  --background: oklch(0.99 0.005 170);
+  --foreground: oklch(0.18 0.03 175);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.129 0.042 264.695);
+  --card-foreground: oklch(0.18 0.03 175);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.208 0.042 265.755);
-  --primary-foreground: oklch(0.984 0.003 247.858);
-  --secondary: oklch(0.968 0.007 247.896);
-  --secondary-foreground: oklch(0.208 0.042 265.755);
-  --muted: oklch(0.968 0.007 247.896);
-  --muted-foreground: oklch(0.554 0.046 257.417);
-  --accent: oklch(0.968 0.007 247.896);
-  --accent-foreground: oklch(0.208 0.042 265.755);
+  --popover-foreground: oklch(0.18 0.03 175);
+  --primary: var(--brand);
+  --primary-foreground: var(--brand-foreground);
+  --secondary: oklch(0.95 0.02 170);
+  --secondary-foreground: var(--brand-deep);
+  --muted: oklch(0.95 0.01 170);
+  --muted-foreground: oklch(0.45 0.03 175);
+  --accent: oklch(0.90 0.05 170);
+  --accent-foreground: var(--brand-deep);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.929 0.013 255.508);
-  --input: oklch(0.929 0.013 255.508);
-  --ring: oklch(0.704 0.04 256.788);
+  --border: oklch(0.90 0.02 170);
+  --input: oklch(0.92 0.02 170);
+  --ring: var(--brand);
+
+  --gradient-hero: linear-gradient(135deg, oklch(0.22 0.05 175) 0%, oklch(0.32 0.08 175) 60%, oklch(0.18 0.04 175) 100%);
+  --gradient-brand: linear-gradient(135deg, var(--brand-deep), var(--brand));
+  --shadow-brand: 0 20px 60px -20px color-mix(in oklab, var(--brand) 55%, transparent);
+  --shadow-glow: 0 0 40px color-mix(in oklab, var(--brand-glow) 60%, transparent);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -140,5 +155,42 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+    font-family: 'Inter', system-ui, sans-serif;
   }
 }
+
+@keyframes blink-glow {
+  0%, 100% { opacity: 0.25; filter: blur(8px); }
+  50% { opacity: 1; filter: blur(4px); }
+}
+@keyframes drift-right {
+  0% { transform: translateX(-10%); }
+  100% { transform: translateX(110%); }
+}
+@keyframes drift-left {
+  0% { transform: translateX(110%); }
+  100% { transform: translateX(-15%); }
+}
+@keyframes forklift-bob {
+  0%, 100% { transform: translateY(0) translateX(0); }
+  25% { transform: translateY(-2px) translateX(2px); }
+  50% { transform: translateY(0) translateX(4px); }
+  75% { transform: translateY(-1px) translateX(2px); }
+}
+@keyframes vessel-sway {
+  0%, 100% { transform: translateX(0) rotate(-0.4deg); }
+  50% { transform: translateX(6px) rotate(0.4deg); }
+}
+@keyframes container-lift {
+  0% { transform: translateY(0); }
+  40% { transform: translateY(-40px); }
+  60% { transform: translateY(-40px); }
+  100% { transform: translateY(0); }
+}
+
+.animate-blink-glow { animation: blink-glow 1.6s ease-in-out infinite; }
+.animate-drift-right { animation: drift-right 22s linear infinite; }
+.animate-drift-left { animation: drift-left 30s linear infinite; }
+.animate-forklift-bob { animation: forklift-bob 0.6s ease-in-out infinite; }
+.animate-vessel-sway { animation: vessel-sway 6s ease-in-out infinite; }
+.animate-container-lift { animation: container-lift 5s ease-in-out infinite; }
