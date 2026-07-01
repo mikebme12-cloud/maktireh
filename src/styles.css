@@ -194,3 +194,19 @@
 .animate-forklift-bob { animation: forklift-bob 0.6s ease-in-out infinite; }
 .animate-vessel-sway { animation: vessel-sway 6s ease-in-out infinite; }
 .animate-container-lift { animation: container-lift 5s ease-in-out infinite; }
+
+@keyframes bounce-soft {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+@keyframes pulse-ring {
+  0% { transform: scale(0.9); opacity: 0.7; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+@keyframes shine {
+  0% { transform: translateX(-120%) skewX(-20deg); }
+  100% { transform: translateX(220%) skewX(-20deg); }
+}
+.animate-bounce-soft { animation: bounce-soft 1.4s ease-in-out infinite; }
+.animate-pulse-ring { animation: pulse-ring 1.8s cubic-bezier(0.2, 0.8, 0.2, 1) infinite; }
+.animate-shine { animation: shine 2.6s ease-in-out infinite; }

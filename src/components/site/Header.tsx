@@ -19,7 +19,7 @@ export function Header() {
           <img src={logoAsset.url} alt="Maktireh Transit" className="h-10 w-10 rounded bg-white/5 p-0.5" />
           <div className="leading-tight">
             <div className="font-[Sora] text-lg font-bold text-white">Maktireh Transit</div>
-            <div className="text-[10px] uppercase tracking-widest text-brand-glow">Djibouti Freezone</div>
+            <div className="text-[10px] uppercase tracking-widest text-brand-glow">Port Operations &amp; Multimodal Transit</div>
           </div>
         </a>
         <nav className="hidden items-center gap-8 md:flex">
@@ -31,9 +31,10 @@ export function Header() {
         </nav>
         <a
           href="tel:+25377231283"
-          className="hidden items-center gap-2 rounded-full bg-brand-glow px-5 py-2 text-sm font-semibold text-brand-deep shadow-[var(--shadow-glow)] transition hover:scale-105 md:inline-flex"
+          className="group relative hidden items-center gap-2 overflow-hidden rounded-full bg-brand-glow px-5 py-2 text-sm font-semibold text-brand-deep shadow-[var(--shadow-glow)] transition hover:scale-105 md:inline-flex"
         >
-          <Phone className="h-4 w-4" /> Get a Quote
+          <span className="absolute inset-0 -translate-x-full bg-white/40 blur-md transition-transform duration-700 group-hover:translate-x-full" />
+          <Phone className="h-4 w-4 animate-bounce-soft relative" /> <span className="relative">Get a Quote</span>
         </a>
         <button aria-label="Menu" onClick={() => setOpen((v) => !v)} className="rounded p-2 text-white md:hidden">
           <Menu />
