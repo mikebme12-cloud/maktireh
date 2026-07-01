@@ -2,10 +2,10 @@ import logoAsset from "@/assets/logo.png.asset.json";
 import { CheckCircle2 } from "lucide-react";
 
 const points = [
-  "Operating base inside the Djibouti Freezone",
-  "Full container handling and customs clearance",
-  "Dedicated fleet on the Djibouti–Addis corridor",
-  "Bonded warehousing with duty-suspended storage",
+  "Port operations at Djibouti terminals",
+  "Customs clearance & full documentation",
+  "Multimodal transit — sea, road & inland rail",
+  "Trusted network of Ethiopian local forwarders",
 ];
 
 export function About() {
@@ -26,13 +26,12 @@ export function About() {
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand">About us</p>
           <h2 className="mt-3 font-[Sora] text-4xl font-bold text-foreground md:text-5xl">
-            Your logistics partner at the <span className="text-brand">Port of Djibouti</span>
+            Djibouti operations, <span className="text-brand">Ethiopia delivery</span>
           </h2>
           <p className="mt-5 text-muted-foreground">
-            Maktireh Transit is a Djibouti-registered transit and logistics company operating out of the Djibouti Freezone.
-            We handle containers, customs and inland trucking for importers and exporters moving cargo between the Red Sea and
-            the Horn of Africa. Our yard is small enough that every shipment gets personal attention — and large enough to
-            move at scale.
+            Maktireh Transit is a Djibouti-registered operations and logistics clearance company. We handle port operations,
+            customs and container movement at the Port of Djibouti, and partner with reliable Ethiopian local forwarders to
+            move cargo inland to Addis Ababa and beyond. One accountable partner from vessel arrival to final delivery.
           </p>
           <ul className="mt-8 grid gap-3 sm:grid-cols-2">
             {points.map((p) => (
