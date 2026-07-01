@@ -9,14 +9,14 @@ export function Freezone() {
       <div className="mx-auto max-w-7xl px-4 md:px-8">
         <div className="grid gap-10 md:grid-cols-2 md:items-end">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-glow">Our Facility</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-glow">Operations</p>
             <h2 className="mt-3 font-[Sora] text-4xl font-bold md:text-5xl">
-              Inside the <span className="text-brand-glow">Djibouti Freezone</span>
+              Port Operations &amp; <span className="text-brand-glow">Multimodal Transit</span>
             </h2>
           </div>
           <p className="text-white/70">
-            These are real photos from our operating yard in the Djibouti Freezone — containers stacked, trailers loaded, trucks
-            moving cargo between the port and inland destinations every day.
+            Real photos from our Djibouti operations yard — containers stacked, trailers loaded, and trucks dispatched
+            daily on the Djibouti–Ethiopia corridor together with our Ethiopian forwarding partners.
           </p>
         </div>
 
