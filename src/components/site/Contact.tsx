@@ -1,6 +1,8 @@
 import { Mail, Phone, Calendar, MapPin } from "lucide-react";
 
-const CALENDLY_URL = "https://calendly.com/fanuel-sebsibe";
+const WHATSAPP_URL = `https://wa.me/25377231283?text=${encodeURIComponent(
+  "Hi Fanuel, I'd like to book a call."
+)}`;
 
 export function Contact() {
   return (
@@ -13,7 +15,7 @@ export function Contact() {
           <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-glow">Get in touch</p>
           <h2 className="mt-3 font-[Sora] text-4xl font-bold md:text-5xl">Ready to move your cargo?</h2>
           <p className="mt-4 text-white/70">
-            Talk to Fanuel Sebsibe directly — book a slot on the calendar or reach us by email or phone.
+            Talk to Fanuel Teklu directly — book a call on WhatsApp or reach us by email or phone.
           </p>
         </div>
 
@@ -28,10 +30,10 @@ export function Contact() {
             <div className="mt-4 text-xs uppercase tracking-widest text-white/50">Phone</div>
             <div className="mt-1 font-[Sora] text-lg font-semibold">+253 77 231 283</div>
           </a>
-          <a href={CALENDLY_URL} target="_blank" rel="noreferrer" className="group rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur transition hover:border-brand-glow/60">
+          <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" className="group rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur transition hover:border-brand-glow/60">
             <Calendar className="h-6 w-6 text-brand-glow" />
             <div className="mt-4 text-xs uppercase tracking-widest text-white/50">Book a call</div>
-            <div className="mt-1 font-[Sora] text-lg font-semibold">Fanuel Sebsibe</div>
+            <div className="mt-1 font-[Sora] text-lg font-semibold">Fanuel Teklu · WhatsApp</div>
           </a>
         </div>
 

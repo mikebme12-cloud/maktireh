@@ -4,9 +4,11 @@ import logoAsset from "@/assets/logo.png.asset.json";
 
 const nav = [
   { label: "Home", href: "#top" },
+  { label: "Track", href: "#track" },
   { label: "Services", href: "#services" },
-  { label: "Freezone", href: "#freezone" },
+  { label: "Operations", href: "#freezone" },
   { label: "About", href: "#about" },
+  { label: "Book a Call", href: "#book" },
   { label: "Contact", href: "#contact" },
 ];
 

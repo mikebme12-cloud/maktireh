@@ -1,9 +1,25 @@
 import { ArrowRight, ShieldCheck } from "lucide-react";
 import { PortScene } from "./PortScene";
+import { TrackShipment } from "./TrackShipment";
+import heroPort from "@/assets/hero-port.jpg.asset.json";
+
+const WHATSAPP_BOOK = `https://wa.me/25377231283?text=${encodeURIComponent(
+  "Hi Fanuel, I'd like to book a call to discuss my shipment."
+)}`;
 
 export function Hero() {
   return (
+    <>
     <section id="top" className="relative isolate overflow-hidden" style={{ background: "var(--gradient-hero)" }}>
+      {/* Port image background */}
+      <img
+        src={heroPort.url}
+        alt="Container ship and transit trucks at the Port of Djibouti"
+        className="absolute inset-0 h-full w-full object-cover opacity-40"
+        width={1920}
+        height={1088}
+      />
+      <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, oklch(0.22 0.05 175 / 0.85) 0%, oklch(0.18 0.04 175 / 0.7) 100%)" }} />
       <PortScene />
       {/* soft green glow */}
       <div className="pointer-events-none absolute -top-40 left-1/2 h-[520px] w-[520px] -translate-x-1/2 rounded-full opacity-30 blur-3xl" style={{ background: "var(--brand-glow)" }} />
@@ -14,19 +30,21 @@ export function Hero() {
             <span className="h-2 w-2 animate-blink-glow rounded-full bg-brand-glow" /> Port Operations &amp; Multimodal Transit
           </div>
           <h1 className="mt-6 font-[Sora] text-5xl font-extrabold leading-[1.05] text-white md:text-6xl">
-            Djibouti to Ethiopia <br />
-            <span className="text-brand-glow">Logistics &amp; Clearance</span>
+            Global Logistics, <br />
+            <span className="text-brand-glow">Simplified.</span>
           </h1>
           <p className="mt-6 max-w-lg text-base text-white/75 md:text-lg">
             Maktireh Transit handles your cargo end-to-end — port operations at Djibouti, customs clearance,
             and multimodal transit inland through our trusted network of Ethiopian local forwarders.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <a href="#contact" className="inline-flex items-center gap-2 rounded-full bg-brand-glow px-6 py-3 font-semibold text-brand-deep shadow-[var(--shadow-glow)] transition hover:scale-105">
-              Discover more <ArrowRight className="h-4 w-4" />
+            <a href="#book" className="inline-flex items-center gap-2 rounded-full bg-brand-glow px-6 py-3 font-semibold text-brand-deep shadow-[var(--shadow-glow)] transition hover:scale-105">
+              Book a Call <ArrowRight className="h-4 w-4" />
             </a>
             <a
-              href="#contact"
+              href={WHATSAPP_BOOK}
+              target="_blank"
+              rel="noreferrer"
               className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full border border-brand-glow bg-brand-glow/10 px-6 py-3 font-semibold text-brand-glow transition hover:bg-brand-glow hover:text-brand-deep"
             >
               <span className="pointer-events-none absolute inset-0 -translate-x-full skew-x-[-20deg] bg-white/30 blur-sm animate-shine" />
@@ -50,5 +68,7 @@ export function Hero() {
         <div />
       </div>
     </section>
+    <TrackShipment />
+    </>
   );
 }
