@@ -9,6 +9,7 @@ import { Contact } from "@/components/site/Contact";
 import { Footer } from "@/components/site/Footer";
 import { ChatWidget } from "@/components/site/ChatWidget";
 import { FloatingContacts } from "@/components/site/FloatingContacts";
+import { BookCall } from "@/components/site/BookCall";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -31,6 +32,7 @@ function Index() {
         <Services />
         <About />
         <Freezone />
+        <BookCall />
         <Process />
         <Contact />
       </main>
