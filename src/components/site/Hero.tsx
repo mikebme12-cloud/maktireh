@@ -2,6 +2,7 @@ import { ArrowRight, ShieldCheck } from "lucide-react";
 import { PortScene } from "./PortScene";
 import { TrackShipment } from "./TrackShipment";
 import heroPort from "@/assets/hero-port.jpg.asset.json";
+import { openCalendly } from "@/lib/calendly";
 
 const WHATSAPP_BOOK = `https://wa.me/25377231283?text=${encodeURIComponent(
   "Hi Fanuel, I'd like to book a call to discuss my shipment."
@@ -38,7 +39,7 @@ export function Hero() {
             and multimodal transit inland through our trusted network of Ethiopian local forwarders.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <a href="#book" className="inline-flex items-center gap-2 rounded-full bg-brand-glow px-6 py-3 font-semibold text-brand-deep shadow-[var(--shadow-glow)] transition hover:scale-105">
+            <a href="#book" onClick={openCalendly} className="inline-flex items-center gap-2 rounded-full bg-brand-glow px-6 py-3 font-semibold text-brand-deep shadow-[var(--shadow-glow)] transition hover:scale-105 cursor-pointer">
               Book a Call <ArrowRight className="h-4 w-4" />
             </a>
             <a

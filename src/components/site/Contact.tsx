@@ -1,4 +1,5 @@
 import { Mail, Phone, Calendar, MapPin } from "lucide-react";
+import { openCalendly } from "@/lib/calendly";
 
 const WHATSAPP_URL = `https://wa.me/25377231283?text=${encodeURIComponent(
   "Hi Fanuel, I'd like to book a call."
@@ -30,10 +31,10 @@ export function Contact() {
             <div className="mt-4 text-xs uppercase tracking-widest text-white/50">Phone</div>
             <div className="mt-1 font-[Sora] text-lg font-semibold">+253 77 231 283</div>
           </a>
-          <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" className="group rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur transition hover:border-brand-glow/60">
+          <a href="#" onClick={openCalendly} className="group cursor-pointer rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur transition hover:border-brand-glow/60">
             <Calendar className="h-6 w-6 text-brand-glow" />
             <div className="mt-4 text-xs uppercase tracking-widest text-white/50">Book a call</div>
-            <div className="mt-1 font-[Sora] text-lg font-semibold">Fanuel Teklu · WhatsApp</div>
+            <div className="mt-1 font-[Sora] text-lg font-semibold">Fanuel Teklu · Calendly</div>
           </a>
         </div>
 

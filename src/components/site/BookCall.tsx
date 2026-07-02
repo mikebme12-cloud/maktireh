@@ -1,5 +1,6 @@
 import { Calendar, MessageCircle, Phone, Mail, Clock } from "lucide-react";
 import fanuel from "@/assets/fanuel.jpg.asset.json";
+import { openCalendly } from "@/lib/calendly";
 
 const WHATSAPP = `https://wa.me/25377231283?text=${encodeURIComponent(
   "Hi Fanuel, I'd like to book a call about my cargo."
@@ -40,15 +41,22 @@ export function BookCall() {
           </ul>
 
           <div className="mt-8 flex flex-wrap gap-3">
+            <button
+              type="button"
+              onClick={openCalendly}
+              className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-brand-glow px-6 py-3 font-semibold text-brand-deep shadow-[var(--shadow-glow)] transition hover:scale-105"
+            >
+              <span className="pointer-events-none absolute inset-0 -translate-x-full bg-white/30 blur-md transition-transform duration-700 group-hover:translate-x-full" />
+              <Calendar className="relative h-4 w-4" />
+              <span className="relative">Book on Calendly</span>
+            </button>
             <a
               href={WHATSAPP}
               target="_blank"
               rel="noreferrer"
-              className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-[#25D366] px-6 py-3 font-semibold text-white shadow-lg transition hover:scale-105"
+              className="inline-flex items-center gap-2 rounded-full bg-[#25D366] px-6 py-3 font-semibold text-white shadow-lg transition hover:scale-105"
             >
-              <span className="pointer-events-none absolute inset-0 -translate-x-full bg-white/30 blur-md transition-transform duration-700 group-hover:translate-x-full" />
-              <MessageCircle className="relative h-4 w-4" />
-              <span className="relative">Book via WhatsApp</span>
+              <MessageCircle className="h-4 w-4" /> WhatsApp
             </a>
             <a href="tel:+25377231283" className="inline-flex items-center gap-2 rounded-full border border-brand px-6 py-3 font-semibold text-brand transition hover:bg-brand hover:text-brand-foreground">
               <Calendar className="h-4 w-4" /> Call now
