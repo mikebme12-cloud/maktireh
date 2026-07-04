@@ -13,8 +13,8 @@ export function BookCall() {
       <div className="mx-auto grid max-w-7xl gap-12 px-4 md:grid-cols-2 md:items-center md:px-8">
         <div className="relative flex flex-col items-center md:items-start">
           <div className="relative">
-            <div className="relative h-48 w-48 overflow-hidden rounded-full border-4 border-brand-glow shadow-[var(--shadow-brand)] md:h-56 md:w-56">
-              <img src={fanuel.url} alt="Fanuel Teklu — Maktireh Transit" className="h-full w-full object-cover" loading="lazy" width={400} height={400} />
+            <div className="relative h-24 w-24 overflow-hidden rounded-full border-4 border-brand-glow shadow-[var(--shadow-brand)] md:h-32 md:w-32">
+              <img src={fanuel.url} alt="Fanuel Teklu — Maktireh Transit" className="h-full w-full object-cover" loading="lazy" width={200} height={200} />
             </div>
             <div className="pointer-events-none absolute -right-2 top-2 rounded-full bg-brand-glow px-3 py-1 text-[10px] font-semibold uppercase tracking-widest text-brand-deep shadow-[var(--shadow-glow)]">
               <span className="mr-1 inline-block h-1.5 w-1.5 animate-blink-glow rounded-full bg-brand-deep" /> Available
