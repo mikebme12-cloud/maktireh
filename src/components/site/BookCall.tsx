@@ -11,16 +11,18 @@ export function BookCall() {
     <section id="book" className="relative overflow-hidden bg-background py-24">
       <div className="pointer-events-none absolute -left-24 top-10 h-72 w-72 rounded-full opacity-20 blur-3xl" style={{ background: "var(--brand)" }} />
       <div className="mx-auto grid max-w-7xl gap-12 px-4 md:grid-cols-2 md:items-center md:px-8">
-        <div className="relative">
-          <div className="relative overflow-hidden rounded-3xl border border-border shadow-[var(--shadow-brand)]">
-            <img src={fanuel.url} alt="Fanuel Teklu — Maktireh Transit" className="h-[520px] w-full object-cover" loading="lazy" width={800} height={800} />
-            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-brand-deep/90 via-brand-deep/40 to-transparent p-6 text-white">
-              <div className="font-[Sora] text-2xl font-bold">Fanuel Teklu</div>
-              <div className="text-sm text-brand-glow">Operations Lead • Maktireh Transit</div>
+        <div className="relative flex flex-col items-center md:items-start">
+          <div className="relative">
+            <div className="relative h-48 w-48 overflow-hidden rounded-full border-4 border-brand-glow shadow-[var(--shadow-brand)] md:h-56 md:w-56">
+              <img src={fanuel.url} alt="Fanuel Teklu — Maktireh Transit" className="h-full w-full object-cover" loading="lazy" width={400} height={400} />
+            </div>
+            <div className="pointer-events-none absolute -right-2 top-2 rounded-full bg-brand-glow px-3 py-1 text-[10px] font-semibold uppercase tracking-widest text-brand-deep shadow-[var(--shadow-glow)]">
+              <span className="mr-1 inline-block h-1.5 w-1.5 animate-blink-glow rounded-full bg-brand-deep" /> Available
             </div>
           </div>
-          <div className="pointer-events-none absolute -right-4 top-6 rounded-full bg-brand-glow px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-brand-deep shadow-[var(--shadow-glow)]">
-            <span className="mr-1 inline-block h-2 w-2 animate-blink-glow rounded-full bg-brand-deep" /> Available now
+          <div className="mt-4 text-center md:text-left">
+            <div className="font-[Sora] text-2xl font-bold text-foreground">Fanuel Teklu</div>
+            <div className="text-sm text-brand">Operations Lead • Maktireh Transit</div>
           </div>
         </div>
 
