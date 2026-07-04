@@ -17,11 +17,10 @@ const clickNav = [
   { label: "Contact", href: "#contact" },
 ];
 
-const companyLinks = [
-  { label: "About Maktireh", href: "#about", desc: "Djibouti–Ethiopia corridor specialists" },
-  { label: "Port Operations", href: "#freezone", desc: "Freezone handling & storage" },
-  { label: "Our Services", href: "#services", desc: "Freight, clearance, transit" },
-  { label: "Track Shipment", href: "#track", desc: "Live container tracking" },
+const ongoingTalks = [
+  { label: "Panel: Modern Logistics in Djibouti", href: "#about" },
+  { label: "Talk: Horn of Africa Trade Dynamics", href: "#about" },
+  { label: "Briefing: Corridor Digitalization 2026", href: "#about" },
 ];
 
 export function Header() {
@@ -46,42 +45,76 @@ export function Header() {
               type="button"
               className="inline-flex items-center gap-1 text-sm font-medium text-white/80 transition hover:text-brand-glow"
             >
-              Company <ChevronDown className="h-3.5 w-3.5 transition group-hover:rotate-180" />
+              Company
+              <ChevronDown className="h-3.5 w-3.5 transition-transform duration-300 ease-out group-hover:rotate-180" />
             </button>
-            <div className="invisible absolute left-1/2 top-full z-50 w-[640px] -translate-x-1/2 pt-3 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100">
-              <div className="grid grid-cols-2 gap-4 rounded-2xl border border-white/10 bg-brand-deep/95 p-5 shadow-[var(--shadow-brand)] backdrop-blur-xl">
-                <div className="space-y-1">
-                  {companyLinks.map((l) => (
-                    <a
-                      key={l.href}
-                      href={l.href}
-                      className="block rounded-lg px-3 py-2 transition hover:bg-white/5"
-                    >
-                      <div className="text-sm font-semibold text-white">{l.label}</div>
-                      <div className="text-xs text-white/60">{l.desc}</div>
-                    </a>
-                  ))}
+            <div className="invisible absolute left-1/2 top-full z-50 w-[880px] max-w-[92vw] -translate-x-1/2 translate-y-1 pt-3 opacity-0 transition-all duration-300 ease-out group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
+              <div className="grid grid-cols-4 gap-5 rounded-2xl border border-slate-700/50 bg-slate-900/90 p-6 shadow-2xl backdrop-blur-md">
+                {/* Zone A — Our Purpose */}
+                <div>
+                  <div className="mb-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-emerald-400">Our Purpose</div>
+                  <div className="space-y-3">
+                    <div>
+                      <div className="text-xs font-semibold text-white">Mission</div>
+                      <p className="text-xs leading-snug text-slate-400">To deliver seamless, reliable multimodal logistics across East Africa.</p>
+                    </div>
+                    <div>
+                      <div className="text-xs font-semibold text-white">Vision</div>
+                      <p className="text-xs leading-snug text-slate-400">To be the premier digital gateway for regional trade.</p>
+                    </div>
+                  </div>
                 </div>
-                {/* Isolated AI guide — pointer-events-none so hover cannot disturb it */}
+
+                {/* Zone B — Leadership Insights */}
+                <div>
+                  <div className="mb-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-emerald-400">Leadership Insights</div>
+                  <div className="space-y-3">
+                    <div>
+                      <div className="text-xs font-semibold text-white">CEO Message</div>
+                      <p className="text-xs leading-snug text-slate-400">"Driving regional growth through structural innovation."</p>
+                    </div>
+                    <div>
+                      <div className="text-xs font-semibold text-white">Managing Director</div>
+                      <p className="text-xs leading-snug text-slate-400">"Ensuring operational excellence across every transit corridor."</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Zone C — Ongoing Talks */}
+                <div>
+                  <div className="mb-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-emerald-400">Ongoing Talks</div>
+                  <ul className="space-y-2">
+                    {ongoingTalks.map((t) => (
+                      <li key={t.label}>
+                        <a href={t.href} className="group/link flex gap-2 text-xs leading-snug text-slate-300 transition hover:text-emerald-400">
+                          <span className="text-emerald-400">•</span>
+                          <span className="group-hover/link:underline">{t.label}</span>
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Isolated AI guide */}
                 <div
-                  className="pointer-events-none select-text rounded-xl border border-brand-glow/30 bg-white/[0.03] p-4"
+                  className="pointer-events-none select-text rounded-xl border border-emerald-500/30 bg-slate-950/60 p-4"
                   aria-label="Maktireh AI Guide"
                 >
                   <div className="mb-3 flex items-center gap-2">
-                    <Sparkles className="h-4 w-4 text-brand-glow" />
-                    <div className="font-[Sora] text-sm font-semibold tracking-wide text-white">Maktireh AI Guide</div>
+                    <Sparkles className="h-3.5 w-3.5 text-emerald-400" />
+                    <div className="font-[Sora] text-xs font-semibold tracking-wide text-white">Maktireh AI Guide</div>
                   </div>
-                  <ol className="space-y-2.5">
+                  <ol className="space-y-2">
                     {[
-                      { t: "Select Transit Route", d: "Choose origin port and final inland destination." },
-                      { t: "Input Load Dimensions", d: "Enter container size, cargo weight, and material class." },
-                      { t: "Generate Instant Quote", d: "Receive verified freight rates and clearance estimates." },
+                      { t: "Select Transit Route", d: "Choose origin port and inland destination." },
+                      { t: "Input Load Dimensions", d: "Container size, weight, material class." },
+                      { t: "Generate Instant Quote", d: "Verified rates and clearance estimates." },
                     ].map((s, i) => (
-                      <li key={s.t} className="flex gap-3">
-                        <span className="font-[Sora] text-base font-bold leading-6 text-brand-glow">{i + 1}.</span>
+                      <li key={s.t} className="flex gap-2">
+                        <span className="font-[Sora] text-sm font-bold leading-5 text-emerald-400">{i + 1}.</span>
                         <div className="leading-tight">
-                          <div className="text-xs font-semibold text-white">{s.t}</div>
-                          <div className="text-[11px] text-white/60">{s.d}</div>
+                          <div className="text-[11px] font-semibold text-white">{s.t}</div>
+                          <div className="text-[10px] text-slate-400">{s.d}</div>
                         </div>
                       </li>
                     ))}
