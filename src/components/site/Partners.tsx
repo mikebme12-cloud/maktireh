@@ -27,23 +27,26 @@ const clients = [
 ];
 
 function PartnerLogo({ partner }: { partner: Partner }) {
+  const [failed, setFailed] = useState(false);
+
   const src = useMemo(() => {
+    if (!partner.domain) return null;
     const token = import.meta.env.VITE_LOVABLE_CONNECTOR_LOGO_DEV_API_KEY;
-    if (!token || !partner.domain) return null;
-    return `https://img.logo.dev/${partner.domain}?token=${token}&format=png&size=200&fallback=initials`;
+    if (token) {
+      return `https://img.logo.dev/${partner.domain}?token=${token}&format=png&size=200&fallback=initials`;
+    }
+    // Free fallback: Google favicon service (no key required)
+    return `https://www.google.com/s2/favicons?domain=${partner.domain}&sz=128`;
   }, [partner.domain]);
 
-  if (src) {
+  if (src && !failed) {
     return (
       <img
         src={src}
         alt={`${partner.name} logo`}
-        className="h-full w-full object-contain p-2 grayscale transition duration-300 group-hover:grayscale-0"
+        className="h-full w-full object-contain p-3 grayscale transition duration-300 group-hover:grayscale-0"
         loading="lazy"
-        onError={(e) => {
-          // If Logo.dev fails, fall back to initials
-          (e.currentTarget as HTMLImageElement).style.display = "none";
-        }}
+        onError={() => setFailed(true)}
       />
     );
   }
