@@ -30,10 +30,21 @@ function PartnerLogo({ partner }: { partner: Partner }) {
   const [failed, setFailed] = useState(false);
 
   const src = useMemo(() => {
+    if (!partner.domain) return null;
     const token = import.meta.env.VITE_LOVABLE_CONNECTOR_LOGO_DEV_API_KEY;
-    if (!token || !partner.domain) return null;
-    return `https://img.logo.dev/${partner.domain}?token=${token}&format=png&size=200&fallback=initials`;
+    if (token) {
+      return `https://img.logo.dev/${partner.domain}?token=${token}&format=png&size=200&fallback=initials`;
+    }
+    // Free logo API fallback (works in production; preview may block external images)
+    return `https://logo.clearbit.com/${partner.domain}?size=200`;
   }, [partner.domain]);
+
+  // Timeout fallback so blocked/slow external images don't show broken icons forever
+  useEffect(() => {
+    if (!src) return;
+    const id = setTimeout(() => setFailed(true), 2500);
+    return () => clearTimeout(id);
+  }, [src]);
 
   if (src && !failed) {
     return (
@@ -43,6 +54,7 @@ function PartnerLogo({ partner }: { partner: Partner }) {
         className="h-full w-full object-contain p-3 grayscale transition duration-300 group-hover:grayscale-0"
         loading="lazy"
         onError={() => setFailed(true)}
+        onLoad={() => setFailed(false)}
       />
     );
   }
