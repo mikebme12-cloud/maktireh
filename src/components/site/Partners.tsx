@@ -30,13 +30,9 @@ function PartnerLogo({ partner }: { partner: Partner }) {
   const [failed, setFailed] = useState(false);
 
   const src = useMemo(() => {
-    if (!partner.domain) return null;
     const token = import.meta.env.VITE_LOVABLE_CONNECTOR_LOGO_DEV_API_KEY;
-    if (token) {
-      return `https://img.logo.dev/${partner.domain}?token=${token}&format=png&size=200&fallback=initials`;
-    }
-    // Free fallback logo API (no key required)
-    return `https://logo.clearbit.com/${partner.domain}?size=200`;
+    if (!token || !partner.domain) return null;
+    return `https://img.logo.dev/${partner.domain}?token=${token}&format=png&size=200&fallback=initials`;
   }, [partner.domain]);
 
   if (src && !failed) {
