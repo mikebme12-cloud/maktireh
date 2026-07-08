@@ -35,8 +35,8 @@ function PartnerLogo({ partner }: { partner: Partner }) {
     if (token) {
       return `https://img.logo.dev/${partner.domain}?token=${token}&format=png&size=200&fallback=initials`;
     }
-    // Free fallback: Google favicon service (no key required)
-    return `https://www.google.com/s2/favicons?domain=${partner.domain}&sz=128`;
+    // Free fallback logo API (no key required)
+    return `https://logo.clearbit.com/${partner.domain}?size=200`;
   }, [partner.domain]);
 
   if (src && !failed) {
