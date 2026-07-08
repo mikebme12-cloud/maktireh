@@ -87,7 +87,7 @@ export function Partners() {
             {marqueePartners.map((p, i) => (
               <div
                 key={`${p.name}-${i}`}
-                className="group flex h-24 w-40 shrink-0 items-center justify-center rounded-xl border border-border bg-card shadow-sm transition duration-300 hover:border-brand hover:shadow-md"
+                className="group flex h-28 w-48 shrink-0 items-center justify-center rounded-2xl border border-border bg-card shadow-sm transition duration-300 hover:border-brand hover:shadow-md"
                 title={p.name}
               >
                 <PartnerLogo partner={p} />
