@@ -1,12 +1,20 @@
-const partners = [
-  "Port of Djibouti",
-  "DP World",
-  "Ethiopian Shipping Lines",
-  "Djibouti Customs",
-  "Ethio Customs",
-  "SGS",
-  "Maersk",
-  "CMA CGM",
+import { useMemo } from "react";
+
+interface Partner {
+  name: string;
+  domain?: string;
+  initials: string;
+}
+
+const partners: Partner[] = [
+  { name: "MSC", domain: "msc.com", initials: "MSC" },
+  { name: "CMA CGM", domain: "cma-cgm.com", initials: "CMA" },
+  { name: "EDR", initials: "EDR" },
+  { name: "Ethiopian Shipping Line", domain: "ethiopianshippinglines.com", initials: "ESL" },
+  { name: "Djibouti Customs", domain: "douane.dj", initials: "DJC" },
+  { name: "SGS", domain: "sgs.com", initials: "SGS" },
+  { name: "Maersk", domain: "maersk.com", initials: "MSK" },
+  { name: "Port of Djibouti", domain: "portdedjibouti.com", initials: "POD" },
 ];
 
 const clients = [
@@ -18,7 +26,42 @@ const clients = [
   "Rift Valley Foods",
 ];
 
+function PartnerLogo({ partner }: { partner: Partner }) {
+  const src = useMemo(() => {
+    const token = import.meta.env.VITE_LOVABLE_CONNECTOR_LOGO_DEV_API_KEY;
+    if (!token || !partner.domain) return null;
+    return `https://img.logo.dev/${partner.domain}?token=${token}&format=png&size=200&fallback=initials`;
+  }, [partner.domain]);
+
+  if (src) {
+    return (
+      <img
+        src={src}
+        alt={`${partner.name} logo`}
+        className="h-full w-full object-contain p-2 grayscale transition duration-300 group-hover:grayscale-0"
+        loading="lazy"
+        onError={(e) => {
+          // If Logo.dev fails, fall back to initials
+          (e.currentTarget as HTMLImageElement).style.display = "none";
+        }}
+      />
+    );
+  }
+
+  return (
+    <div className="flex h-full w-full flex-col items-center justify-center gap-1 text-center">
+      <span className="font-[Sora] text-lg font-bold text-brand">{partner.initials}</span>
+      <span className="max-w-[90%] truncate px-1 text-[10px] font-medium text-muted-foreground">
+        {partner.name}
+      </span>
+    </div>
+  );
+}
+
 export function Partners() {
+  // Duplicate the list for a seamless infinite marquee loop
+  const marqueePartners = useMemo(() => [...partners, ...partners], []);
+
   return (
     <section id="partners" className="bg-background py-24">
       <div className="mx-auto max-w-7xl px-4 md:px-8">
@@ -29,15 +72,23 @@ export function Partners() {
             Regional partners &amp; port authorities
           </h2>
         </div>
-        <div className="mt-10 grid grid-cols-2 gap-x-8 gap-y-6 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-8">
-          {partners.map((p) => (
-            <div
-              key={p}
-              className="flex h-14 items-center justify-center rounded-lg border border-border bg-card px-3 text-center font-[Sora] text-xs font-semibold text-muted-foreground grayscale transition hover:text-brand hover:grayscale-0"
-            >
-              {p}
-            </div>
-          ))}
+
+        <div className="relative mt-12 overflow-hidden rounded-2xl border border-border bg-card/50 py-2">
+          {/* Fade masks */}
+          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-background to-transparent" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-background to-transparent" />
+
+          <div className="flex w-max animate-marquee items-center gap-8 px-4">
+            {marqueePartners.map((p, i) => (
+              <div
+                key={`${p.name}-${i}`}
+                className="group flex h-24 w-40 shrink-0 items-center justify-center rounded-xl border border-border bg-card shadow-sm transition duration-300 hover:border-brand hover:shadow-md"
+                title={p.name}
+              >
+                <PartnerLogo partner={p} />
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Our Clients */}
