@@ -52,9 +52,11 @@ function PartnerLogo({ partner }: { partner: Partner }) {
   }
 
   return (
-    <div className="flex h-full w-full flex-col items-center justify-center gap-1 text-center">
-      <span className="font-[Sora] text-lg font-bold text-brand">{partner.initials}</span>
-      <span className="max-w-[90%] truncate px-1 text-[10px] font-medium text-muted-foreground">
+    <div className="flex h-full w-full flex-col items-center justify-center gap-2 text-center px-2">
+      <div className="flex h-12 w-12 items-center justify-center rounded-full bg-brand/10 font-[Sora] text-base font-bold text-brand">
+        {partner.initials}
+      </div>
+      <span className="max-w-[95%] truncate text-[11px] font-semibold text-muted-foreground">
         {partner.name}
       </span>
     </div>
