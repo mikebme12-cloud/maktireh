@@ -9,7 +9,7 @@ interface Partner {
 const partners: Partner[] = [
   { name: "MSC", domain: "msc.com", initials: "MSC" },
   { name: "CMA CGM", domain: "cma-cgm.com", initials: "CMA" },
-  { name: "EDR", initials: "EDR" },
+  { name: "EDR", domain: "edr.gov.et", initials: "EDR" },
   { name: "Ethiopian Shipping Line", domain: "ethiopianshippinglines.com", initials: "ESL" },
   { name: "Djibouti Customs", domain: "douane.dj", initials: "DJC" },
   { name: "SGS", domain: "sgs.com", initials: "SGS" },
